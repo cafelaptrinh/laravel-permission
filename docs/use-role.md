@@ -222,4 +222,3 @@ $user->hasAnyRole('admin','member')
 $user->hasAllRoles(Role::all())
 
 ```
->>>>>>> 32271b5cd30666bb697ebbf1b52457301f80575f
