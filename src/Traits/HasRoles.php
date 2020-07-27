@@ -48,6 +48,16 @@ trait HasRoles
         );
     }
 
+    public function banUsers()
+    {
+        return $this->belongsToMany(
+            config('permission.models.permission'),
+            config('permission.table_names.ban_user'),
+            'user_id',
+            'permission_id'
+        );
+    }
+
     /**
      * Scope the model query to certain roles only.
      *

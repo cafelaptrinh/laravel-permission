@@ -70,6 +70,7 @@ class Permission extends Model implements PermissionContract
         );
     }
 
+
     /**
      * Find a permission by its name (and optionally guardName).
      *

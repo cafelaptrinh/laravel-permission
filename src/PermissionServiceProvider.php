@@ -22,6 +22,10 @@ class PermissionServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../database/migrations/create_permission_tables.php.stub' => $this->getMigrationFileName($filesystem),
             ], 'migrations');
+            
+            $this->publishes([
+                __DIR__.'/../database/seeds/RoleSeeder.php.stub' => database_path('seeds/RoleSeeder.php'),
+            ], 'seeds');
         }
 
         $this->registerMacroHelpers();

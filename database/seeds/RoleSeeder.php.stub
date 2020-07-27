@@ -16,50 +16,41 @@ class RoleSeeder extends Seeder
         // tạo permission
         Per::create([
             'name'=>'dashboard',
-            'display_name'=>'Đăng nhập Cpanel',
-            'guard'=>'web'
+            'display_name'=>'Đăng nhập Cpanel'
         ]);
         Per::create([
             'name'=>'edit user',
-            'display_name'=>'Sửa Thành Viên',
-            'guard'=>'web'
+            'display_name'=>'Sửa Thành Viên'
         ]);
         Per::create([
             'name'=>'ban user',
-            'display_name'=>'Cấm Thành Viên',
-            'guard'=>'web'
+            'display_name'=>'Cấm Thành Viên'
         ]);
         Per::create([
             'name'=>'add post',
-            'display_name'=>'Thêm Bài Viết',
-            'guard'=>'web'
+            'display_name'=>'Thêm Bài Viết'
         ]);
         Per::create([
             'name'=>'edit post',
-            'display_name'=>'Sửa Bài Viết',
-            'guard'=>'web'
+            'display_name'=>'Sửa Bài Viết'
         ]);
         Per::create([
             'name'=>'delete post',
-            'display_name'=>'Xóa Bài Viết',
-            'guard'=>'web'
+            'display_name'=>'Xóa Bài Viết'
         ]);
 
         // tạo role
         Role::create([
             'name'=>'admin',
-            'display_name'=>'Administrator',
-            'guard'=>'web'
+            'display_name'=>'Administrator'
         ]);
         Role::create([
             'name'=>'transistor',
-            'display_name'=>'Quản Trị Viên',
-            'guard'=>'web'
+            'display_name'=>'Quản Trị Viên'
         ]);
         Role::create([
             'name'=>'member',
-            'display_name'=>'Thành Viên',
-            'guard'=>'web'
+            'display_name'=>'Thành Viên'
         ]);
 
         

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 use CafeLT\Permission\WildcardPermission;
 use CafeLT\Permission\PermissionRegistrar;
 use CafeLT\Permission\Contracts\Permission;
+use CafeLT\Permission\Contracts\Role;
 use CafeLT\Permission\Exceptions\GuardDoesNotMatch;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use CafeLT\Permission\Exceptions\PermissionDoesNotExist;
@@ -16,6 +17,7 @@ use CafeLT\Permission\Exceptions\WildcardPermissionInvalidArgument;
 trait HasPermissions
 {
     private $permissionClass;
+    private $roleClass;
 
     public static function bootHasPermissions()
     {
@@ -35,6 +37,15 @@ trait HasPermissions
         }
 
         return $this->permissionClass;
+    }
+
+    public function getRoleClass()
+    {
+        if (! isset($this->RoleClass)) {
+            $this->RoleClass = app(PermissionRegistrar::class)->getRoleClass();
+        }
+
+        return $this->RoleClass;
     }
 
     /**
@@ -110,13 +121,17 @@ trait HasPermissions
      * @return bool
      * @throws PermissionDoesNotExist
      */
-    public function hasPermissionTo($permission, $guardName = null): bool
+    public function hasPermissionTo($permission, $guardName = null)
     {
         if (config('permission.enable_wildcard_permission', false)) {
             return $this->hasWildcardPermission($permission, $guardName);
         }
 
         $permissionClass = $this->getPermissionClass();
+        $banUser=$this->banUsers;
+        if($banUser->contains('name',$permission)){
+            return false;
+        }
 
         if (is_string($permission)) {
             $permission = $permissionClass->findByName(
@@ -266,9 +281,10 @@ trait HasPermissions
      * @return bool
      * @throws PermissionDoesNotExist
      */
-    public function hasDirectPermission($permission): bool
+    public function hasDirectPermission($permission)
     {
         $permissionClass = $this->getPermissionClass();
+        $roleClass = $this->getRoleClass();
 
         if (is_string($permission)) {
             $permission = $permissionClass->findByName($permission, $this->getDefaultGuardName());
@@ -281,8 +297,13 @@ trait HasPermissions
         if (! $permission instanceof Permission) {
             throw new PermissionDoesNotExist;
         }
+        $permissions=$this->permissions->contains('id', $permission->id);
+        if($permissions){
+            return $permissions;
+        }
 
-        return $this->permissions->contains('id', $permission->id);
+        return $roleClass->findById($this->roles[0]->id)->permissions->contains('id',$permission->id);
+        
     }
 
     /**

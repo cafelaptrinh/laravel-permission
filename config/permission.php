@@ -26,6 +26,8 @@ return [
 
         'role' => CafeLT\Permission\Models\Role::class,
 
+        'user'=> config('auth.providers.users.model'),
+
     ],
 
     'table_names' => [
@@ -72,6 +74,8 @@ return [
 
 
         'ban_user' => 'ban_user',
+
+        'users'=>'users'
     ],
 
     'column_names' => [
