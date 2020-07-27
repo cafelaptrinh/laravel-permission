@@ -1,0 +1,68 @@
+<?php
+
+use Illuminate\Database\Seeder;
+use CafeLT\Permission\Models\Role;
+use CafeLT\Permission\Models\Permission as Per;
+
+class RoleSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        // tạo permission
+        Per::create([
+            'name'=>'dashboard',
+            'display_name'=>'Đăng nhập Cpanel',
+            'guard'=>'web'
+        ]);
+        Per::create([
+            'name'=>'edit user',
+            'display_name'=>'Sửa Thành Viên',
+            'guard'=>'web'
+        ]);
+        Per::create([
+            'name'=>'ban user',
+            'display_name'=>'Cấm Thành Viên',
+            'guard'=>'web'
+        ]);
+        Per::create([
+            'name'=>'add post',
+            'display_name'=>'Thêm Bài Viết',
+            'guard'=>'web'
+        ]);
+        Per::create([
+            'name'=>'edit post',
+            'display_name'=>'Sửa Bài Viết',
+            'guard'=>'web'
+        ]);
+        Per::create([
+            'name'=>'delete post',
+            'display_name'=>'Xóa Bài Viết',
+            'guard'=>'web'
+        ]);
+
+        // tạo role
+        Role::create([
+            'name'=>'admin',
+            'display_name'=>'Administrator',
+            'guard'=>'web'
+        ]);
+        Role::create([
+            'name'=>'transistor',
+            'display_name'=>'Quản Trị Viên',
+            'guard'=>'web'
+        ]);
+        Role::create([
+            'name'=>'member',
+            'display_name'=>'Thành Viên',
+            'guard'=>'web'
+        ]);
+
+        
+
+    }
+}

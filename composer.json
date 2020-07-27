@@ -1,0 +1,21 @@
+{
+    "name": "cafelaptrinh/laravel-role",
+    "description": "laravel permission su dung database",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "cafelaptrinh",
+            "email": "cafelaptrinh2@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "CafeLT\\Permission\\": "src"
+        }
+    }
+}
