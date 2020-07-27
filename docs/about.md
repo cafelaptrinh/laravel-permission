@@ -23,7 +23,7 @@ Or
 @endhasrole
 ```
 
-###Kiểm tra nhiều role
+### Kiểm tra nhiều role
 ```php
 @hasanyrole('writer|admin')
     Tôi là writer hoặc admin!
