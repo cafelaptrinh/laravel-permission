@@ -1,2 +1,83 @@
-# laravel-role
-phân quyền trong laravel sử dụng database
+# Phân Quyền laravel
+
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/cafelaptrinh/laravel-role.svg?style=flat-square)](https://packagist.org/packages/cafelaptrinh/laravel-role)
+[![Total Downloads](https://img.shields.io/packagist/dt/cafelaptrinh/laravel-role.svg?style=flat-square)](https://packagist.org/packages/cafelaptrinh/laravel-role)
+
+### Cài đặt
+
+Sử dụng câu lệnh composer require:
+
+```bash
+composer require cafelaptrinh/laravel-role
+```
+
+Sau khi chạy composer xong tiến hành vào file config/app.php và add provider:
+
+```php
+'providers'=>[
+    CafeLT\Permission\PermissionServiceProvider::class,
+]
+```
+
+## Support us
+
+Learn how to create a package like this one, by watching our premium video course:
+
+[![Laravel Package training](https://spatie.be/github/package-training.jpg)](https://laravelpackage.training)
+
+We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
+
+We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+
+## Documentation, Installation, and Usage Instructions
+
+See the [DOCUMENTATION](https://docs.spatie.be/laravel-permission/v3/introduction/) for detailed installation and usage instructions.
+
+### Testing
+
+``` bash
+composer test
+```
+
+### Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+### Security
+
+If you discover any security-related issues, please email [freek@spatie.be](mailto:freek@spatie.be) instead of using the issue tracker.
+
+## Postcardware
+
+You're free to use this package, but if it makes it to your production environment we highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using.
+
+Our address is: Spatie, Kruikstraat 22, 2018 Antwerp, Belgium.
+
+We publish all received postcards [on our company website](https://spatie.be/en/opensource/postcards).
+
+## Credits
+
+- [Freek Van der Herten](https://github.com/freekmurze)
+- [All Contributors](../../contributors)
+
+This package is heavily based on [Jeffrey Way](https://twitter.com/jeffrey_way)'s awesome [Laracasts](https://laracasts.com) lessons
+on [permissions and roles](https://laracasts.com/series/whats-new-in-laravel-5-1/episodes/16). His original code
+can be found [in this repo on GitHub](https://github.com/laracasts/laravel-5-roles-and-permissions-demo).
+
+Special thanks to [Alex Vanderbist](https://github.com/AlexVanderbist) who greatly helped with `v2`, and to [Chris Brown](https://github.com/drbyte) for his longtime support  helping us maintain the package.
+
+## Alternatives
+
+- [Povilas Korop](https://twitter.com/@povilaskorop) did an excellent job listing the alternatives [in an article on Laravel News](https://laravel-news.com/two-best-roles-permissions-packages). In that same article, he compares laravel-permission to [Joseph Silber](https://github.com/JosephSilber)'s [Bouncer]((https://github.com/JosephSilber/bouncer)), which in our book is also an excellent package.
+- [ultraware/roles](https://github.com/ultraware/roles) takes a slightly different approach to its features.
+- [santigarcor/laratrust](https://github.com/santigarcor/laratrust) implements team support
+- [zizaco/entrust](https://github.com/zizaco/entrust) offers some wildcard pattern matching
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
