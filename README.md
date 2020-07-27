@@ -64,4 +64,5 @@ use hasRole;
 Vậy là đã cài thành công ! Giờ hãy chọn các mục dưới đây:
 
 [Cách dùng Role](https://github.com/cafelaptrinh/laravel-role/docs/use-role.md)
+
 [Cách dùng Role trong Blade laravel](https://github.com/cafelaptrinh/laravel-role/docs/role-blade.md)
