@@ -53,4 +53,10 @@ use CafeLT\Permission\Models\Permission;
 ```
 
 
-# Tương tác giữa pemrmission và role
+# Tương tác giữa user và role
+```php
+//Lấy tất cả các permission mà user có
+$user->getAllPermissions()
+// kiểm tra xem userr có permission này không
+$user->hasPermissionTo('dashboard')
+```
