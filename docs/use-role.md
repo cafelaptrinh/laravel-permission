@@ -57,6 +57,55 @@ use CafeLT\Permission\Models\Permission;
 ```php
 //Lấy tất cả các permission mà user có
 $user->getAllPermissions()
-// kiểm tra xem userr có permission này không
-$user->hasPermissionTo('dashboard')
+
+
+// kiểm tra xem user có permission này không
+$user->hasPermissionTo($permission->name)
+// Hoặc
+$user->hasPermissionTo($permission->id)
+
+//Kiểm tra xem user có nhiều permission này không
+$user->hasAnyPermission([$permission1->name,$permission2->name,$permission3->name])
+//hoặc
+$user->hasAnyPermission([$permission1->id,$permission2->id,$permission3->id])
+//hoặc
+$user->hasAnyPermission([$permission1->name,$permission2->id,$permission3->id])
+
+ý tôi là bạn có thể truyền id hoặc name của permission tùy ý
+```
+
+### Gán role cho user
+```php
+//gán 1 role cho 1 user
+$user->assignRole('admin');
+//gán nhiều role cho 1 user
+$user->assignRole(['admin','member']);
+```
+
+### Xóa role của user
+```php
+//xóa 1 role
+$user->removeRole('admin')
+//xóa nhiều role
+$user->removeRole(['admin','member'])
+```
+
+### Đồng bộ hóa role cho user
+```php
+$user->syncRoles('admin')
+//hoặc
+$user->syncRoles(['admin','member'])
+```
+
+### Kiểm tra xem user có role này không
+```php
+//1 role
+$user->hasRole('admin')
+//nhiều role
+$user->hasAnyRole(['admin','member'])
+//hoặc
+$user->hasAnyRole('admin','member')
+//hoặc
+$user->hasAllRoles(Role::all())
+
 ```
