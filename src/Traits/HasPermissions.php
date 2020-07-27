@@ -150,8 +150,9 @@ trait HasPermissions
         if (! $permission instanceof Permission) {
             throw new PermissionDoesNotExist;
         }
+        return $this->getAllPermissions()->contains('name',$permission->name);
 
-        return $this->hasDirectPermission($permission) || $this->hasPermissionViaRole($permission);
+        // return $this->hasDirectPermission($permission) || $this->hasPermissionViaRole($permission);
     }
 
     /**
