@@ -22,18 +22,16 @@ class PermissionServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../database/migrations/create_permission_tables.php.stub' => $this->getMigrationFileName($filesystem),
             ], 'migrations');
-
-            $this->publishes([
-                __DIR__.'/../database/seeds/RoleSeeder.php.stub' => database_path('seeds/RoleSeeder.php'),
-            ], 'seeds');
         }
 
-        // $this->commands([
-        //     Commands\CacheReset::class,
-        //     Commands\CreateRole::class,
-        //     Commands\CreatePermission::class,
-        //     Commands\Show::class,
-        // ]);
+        $this->registerMacroHelpers();
+
+        $this->commands([
+            Commands\CacheReset::class,
+            Commands\CreateRole::class,
+            Commands\CreatePermission::class,
+            Commands\Show::class,
+        ]);
 
         $this->registerModelBindings();
 
@@ -122,6 +120,36 @@ class PermissionServiceProvider extends ServiceProvider
         });
     }
 
+    protected function registerMacroHelpers()
+    {
+        if (! method_exists(Route::class, 'macro')) { // Lumen
+            return;
+        }
+
+        Route::macro('role', function ($roles = []) {
+            if (! is_array($roles)) {
+                $roles = [$roles];
+            }
+
+            $roles = implode('|', $roles);
+
+            $this->middleware("role:$roles");
+
+            return $this;
+        });
+
+        Route::macro('permission', function ($permissions = []) {
+            if (! is_array($permissions)) {
+                $permissions = [$permissions];
+            }
+
+            $permissions = implode('|', $permissions);
+
+            $this->middleware("permission:$permissions");
+
+            return $this;
+        });
+    }
 
     /**
      * Returns existing migration file if found, else uses the current timestamp.

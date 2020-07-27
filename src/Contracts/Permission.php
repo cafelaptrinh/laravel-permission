@@ -19,7 +19,7 @@ interface Permission
      * @param string $name
      * @param string|null $guardName
      *
-     * @throws \Cafe\Permission\Exceptions\PermissionDoesNotExist
+     * @throws \CafeLT\Permission\Exceptions\PermissionDoesNotExist
      *
      * @return Permission
      */
@@ -31,7 +31,7 @@ interface Permission
      * @param int $id
      * @param string|null $guardName
      *
-     * @throws \Cafe\Permission\Exceptions\PermissionDoesNotExist
+     * @throws \CafeLT\Permission\Exceptions\PermissionDoesNotExist
      *
      * @return Permission
      */
