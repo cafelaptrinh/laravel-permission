@@ -53,7 +53,7 @@ class User extends Authenticatable
 {
 ...
 
-use hasRole;
+use hasRoles;
 
 ...
 }
