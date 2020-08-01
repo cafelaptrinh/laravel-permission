@@ -97,7 +97,7 @@ class CreatePermissionTables extends Migration
 
             $table->foreign('user_id')
                 ->references('id')
-                ->on(config('auth.providers.users.model'))
+                ->on($tableNames['users'])
                 ->onDelete('cascade');
 
             $table->primary(['permission_id', 'user_id'], 'ban_user_permission_id_user_id_primary');
