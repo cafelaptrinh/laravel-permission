@@ -10,7 +10,7 @@
 Sử dụng câu lệnh composer require:
 
 ```bash
-composer require cafelaptrinh/laravel-role
+composer require cafelaptrinh/laravel-permission
 ```
 
 
