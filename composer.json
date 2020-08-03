@@ -12,7 +12,7 @@
         "security",
         "cafelt"
     ],
-    "homepage": "https://github.com/cafelaptrinh/laravel-role",
+    "homepage": "https://github.com/cafelaptrinh/laravel-permission",
     "license": "MIT",
     "authors": [
         {
